@@ -66,7 +66,14 @@ def testReport(cmdArr, timing, timeStamps, testDir, fileRootName):
     return pathCSV, pathXL
 
 def excel_date(date1):
-    
+    """Converts seconds from epoch time/date object to excel date
+
+    Args:
+        date1 (datetime): standard python datetime 
+
+    Returns:
+        float: time since 12/30/1899 for excel
+    """
     temp = datetime(1899, 12, 30)    # Note, not 31st Dec but 30th!
     delta = date1 - temp
     return float(delta.days) + (float(delta.seconds) / 86400)
