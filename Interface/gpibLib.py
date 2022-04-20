@@ -20,12 +20,6 @@ def connection():
             for ssub in splat:
                 if ssub.find("GPIB") != -1:
                     print("GPIB device found on Port # ", splat[ind+1], os.linesep)
-                    # time.sleep(1)
-                    # print("Connecting", os.linesep, ".......")
-                    # time.sleep(.5)
-                    # print(" .......")
-                    # time.sleep(.5)
-                    # print("Connected to: ")
                     my_instrument = rm.open_resource(devArr[i])
                     print(my_instrument.query('*IDN?'), os.linesep)
                 ind +=1

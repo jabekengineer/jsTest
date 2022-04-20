@@ -33,6 +33,18 @@ def errQry():
     return cmd
 
 def testReport(cmdArr, timing, timeStamps, testDir, fileRootName):
+    """Combine device cmdArr and timing data into csv and excel files
+
+    Args:
+        cmdArr (Dataframe): array of the test instrument commands
+        timing (list) : <magnitude>seconds of each command since test start
+        timeStamps (list): <magnitude>seconds of each command since test start
+        testDir (string): path to test folder
+        fileRootName (string): test report file name
+
+    Returns:
+        _type_: _description_
+    """
     freq = []
     amplitude = []
     offset = []
@@ -54,6 +66,7 @@ def testReport(cmdArr, timing, timeStamps, testDir, fileRootName):
     return pathCSV, pathXL
 
 def excel_date(date1):
+    
     temp = datetime(1899, 12, 30)    # Note, not 31st Dec but 30th!
     delta = date1 - temp
     return float(delta.days) + (float(delta.seconds) / 86400)
